@@ -1,21 +1,22 @@
-let newFreelancer = {}
+let newFreelancer = []
 
 function freelancerRandomizer () {
   let nameList = ["Jane","Lilian","Alisa","Noemi","Keshawn","Andres","Messiah","Maia","Shiloh","Hazel", "Pierre","Lizbeth"]
   
   let occupationList = ["Graphic Designer","Web Design","Software Developer","Copywriting","Translator","Virtual Assistant","Social media","Video editing","Web developer","Accountant", "Photographer","Project manager"]
   
-  newFreelancer = {
+  let randomFreelancer = {
     name: nameList[Math.floor(Math.random() * nameList.length)],
     occupation: occupationList[Math.floor(Math.random() * occupationList.length)],
     price: Math.floor(Math.random() * 100),
   }
 
-  return (newFreelancer)
+  return (randomFreelancer)
 }
 
-function addFreelancer () {
-  return newFreelancer.push(freelancer.Randomizer)
+function pushNewFreelancer () {
+  let randomNewFreelancer = setInterval((freelancerRandomizer()), 500)
+  newFreelancer.push(randomNewFreelancer)
 }
 
 
@@ -42,16 +43,34 @@ let freelancer = [
     occupation: "Programmer",
     price: 70,
   },
-  // setInterval(() => {
-    // freelancerRandomizer()
-  // }, 1000) 
+  // pushNewFreelancer()
+  // setInterval((freelancerRandomizer()), 500) 
 ]
+// function addNewFreelancer() {
+  // freelancer.push(freelancerRandomizer())
+// }
 
-setInterval(() => {
-  freelancer.push(freelancerRandomizer())
-}, 5000)
+// function autoAddFreelancer() {
+//   setInterval(() => freelancer.push(freelancerRandomizer()), 500)
+//   return freelancer
+// }
+// setInterval(() => {
+//   freelancer.push(freelancerRandomizer())
+// }, 100)
 
 console.log(freelancer.length)
+
+let totalPrice = freelancer.reduce((acc, cur) => acc + cur.price, 0)
+let averagePrice = totalPrice / freelancer.length
+// function averagePrice() {
+  
+  
+//   let average = 0
+//   for (let i = 0 ; i < freelancer.length ; i++) {
+
+//   }
+//   let totalPrice = 0
+// }
 // freelancer.push(freelancerRandomizer())
 
 
@@ -72,6 +91,10 @@ console.log(freelancer.length)
     
       and add them to the candy-bag div on the main html page
 */
+
+let averagePriceDiv = document.getElementById("average-price")
+averagePriceDiv.innerHTML = `The average starting price is $${averagePrice}`
+// function renderAveragePrice (){}
 
 function renderFreelancer() {
   let freelancerList = document.getElementById("freelancer-list")
